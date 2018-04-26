@@ -1,0 +1,48 @@
+--- 
+- hosts: tom
+  gather_facts: False
+  user: ec2-user
+  become: true
+#  become_method: sudo
+  tasks:
+ 
+#downlaoding a tomcattar zip
+#  - name: to make sure wget is installed
+#    yum: name=wget state=installed
+    
+#  - name: to download tarzip of tomcat using command module
+#    shell: | 
+#      cd ~
+#      mkdir towget
+#      cd towget
+#     wget 
+#      cd
+   - name: to install tomcat 7
+     yum: name=tomcat state=installed
+
+   - name: starting tomcat7
+     service: name=tomcat state=started
+     
+   - name: to install the tomcat other directories
+     command: yum install tomcat-webapps tomcat-docs-webapp tomcat-admin-webapps -y
+   
+   - name: to configure tomcat-users.xml
+     copy: src=./tomcat-users.xml  dest=/etc/tomcat7/tomcat-users.xml
+   
+   - name: to restart tomcat
+     service: name=tomcat state=restart
+#   - name: to configure context.xml
+#     copy: src=./context.xml dest=/var/lib/tomcat7/webapps/manager/META-INF/context.xml
+
+  
+  
+#  - name: Deploy War File
+#    maven_artifact: group_id=org.sandeep artifact_id=application extension=war repository_url=http://ec2-54-244-176-121.us-west-2.compute.amazonaws.com:8080/nexus-2.14.7-01/content/repositories/snapshots/ username=admin password=admin123  dest=~/cd/
+  
+
+#  - name: command module to copy to webapps
+#    command: docker cp ~/cd/application-latest.war tomcat:/usr/local/tomcat/webapps/
+    
+    
+#  - name: to restart tomcat docker container after the deployment
+#    command: docker restart tomcat
