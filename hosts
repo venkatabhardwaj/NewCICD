@@ -1,2 +1,2 @@
 [tom]
-52.53.243.43 ansible_ssh_private_key_file=~/key.pem ansible_ssh_user=centos
+52.53.243.43 ansible_ssh_private_key_file=~/key.pem ansible_ssh_user=centos ansible_ssh_port=22
