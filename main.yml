@@ -29,8 +29,7 @@
   maven_artifact: group_id=org.bharath artifact_id=application extension=war repository_url=http://54.153.77.32:8080/nexus/content/repositories/snapshots/bharath/org/application/1.0-SNAPSHOT/ username=admin password=admin123  dest=~/cd/
   
 
- - name: command module to copy to webapps
-command: docker cp ~/cd/application-latest.war tomcat:/usr/local/tomcat/webapps/
+ 
     
     
 
