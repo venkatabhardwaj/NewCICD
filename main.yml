@@ -32,17 +32,17 @@
    - name: to restart tomcat
      service: name=tomcat state=restart
      
-#   - name: to configure context.xml
-#     copy: src=./context.xml dest=/var/lib/tomcat7/webapps/manager/META-INF/context.xml
+ - name: to configure context.xml
+     copy: src=./context.xml dest=/var/lib/tomcat7/webapps/manager/META-INF/context.xml
 
   
   
-#  - name: Deploy War File
-#    maven_artifact: group_id=org.sandeep artifact_id=application extension=war repository_url=http://ec2-54-244-176-121.us-west-2.compute.amazonaws.com:8080/nexus-2.14.7-01/content/repositories/snapshots/ username=admin password=admin123  dest=~/cd/
+- name: Deploy War File
+  maven_artifact: group_id=org.bharath artifact_id=application extension=war repository_url=http://http://54.153.77.32:8080/nexus/content/repositories/snapshots/bharath/org/application/1.0-SNAPSHOT/ username=admin password=admin123  dest=~/cd/
   
 
-#  - name: command module to copy to webapps
-#    command: docker cp ~/cd/application-latest.war tomcat:/usr/local/tomcat/webapps/
+ - name: command module to copy to webapps
+command: docker cp ~/cd/application-latest.war tomcat:/usr/local/tomcat/webapps/
     
     
 #  - name: to restart tomcat docker container after the deployment
