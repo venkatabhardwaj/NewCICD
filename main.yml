@@ -3,20 +3,8 @@
   gather_facts: False
   user: ec2-user
   become: true
-#  become_method: sudo
   tasks:
  
-#downlaoding a tomcattar zip
-#  - name: to make sure wget is installed
-#    yum: name=wget state=installed
-    
-#  - name: to download tarzip of tomcat using command module
-#    shell: | 
-#      cd ~
-#      mkdir towget
-#      cd towget
-#     wget 
-#      cd
    - name: to install tomcat 7
      yum: name=tomcat state=installed
 
@@ -45,5 +33,4 @@
 command: docker cp ~/cd/application-latest.war tomcat:/usr/local/tomcat/webapps/
     
     
-#  - name: to restart tomcat docker container after the deployment
-#    command: docker restart tomcat
+
