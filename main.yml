@@ -5,30 +5,11 @@
    become: true
    tasks:
  
-    - name: to install tomcat 7
-      yum: name=tomcat state=installed
-
-    - name: starting tomcat7
-      service: name=tomcat state=started
-     
-    - name: to install the tomcat other directories
-      command: yum install tomcat-webapps tomcat-docs-webapp tomcat-admin-webapps -y
-   
-    - name: to configure tomcat-users.xml
-      copy: src=./tomcat-users.xml  dest=/etc/tomcat7/tomcat-users.xml
-   
-    - name: to restart tomcat
-      service: name=tomcat state=restart
-     
-    - name: to configure context.xml
-      copy: src=./context.xml dest=/var/lib/tomcat7/webapps/manager/META-INF/context.xml
-
-  
-  
     - name: Deploy War File
-      maven_artifact: group_id=org.bharath artifact_id=application extension=war repository_url=http://54.153.77.32:8080/nexus/content/repositories/snapshots/bharath/org/application/1.0-SNAPSHOT/ username=admin password=admin123  dest=~/cd/
-  
-
+      maven_artifact: group_id=org.bharath artifact_id=application extension=war repository_url=http://54.153.77.32:8080/nexus/content/repositories/snapshots/bharath/org/application/1.0-SNAPSHOT/ username=admin password=admin123  dest=~/usr/share/tomcat/webapps/
+    
+    - name: restart tomcat
+      command: service tomcat restart 
  
     
     
