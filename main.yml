@@ -11,7 +11,7 @@
     command: scp -r -i /var/lib/jenkins/workspace/CD/key.pem /usr/hold centos@52.53.243.43:/usr/share/tomcat/webapps/
       
   - name: restart tomcat
-     command: service tomcat restart 
+    command: service tomcat restart 
  
     
     
