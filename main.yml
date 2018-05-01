@@ -3,6 +3,7 @@
    connection: ssh
    gather_facts: true
    become: true
+   become_user: root
    tasks:
     - name: Deploy War File
       maven_artifact: group_id=org.bharath artifact_id=application extension=war repository_url=http://54.153.77.32:8080/nexus/content/repositories/snapshots/bharath/org/application/1.0-SNAPSHOT/ username=admin password=admin123  dest=~/usr/hold/
