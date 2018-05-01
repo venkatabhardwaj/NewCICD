@@ -2,7 +2,7 @@
  - hosts: all
    gather_facts: true
    become: true
-   become_user: root
+   become_user: centos
    tasks:
     - name: Deploy War File
       maven_artifact: group_id=org.bharath artifact_id=application extension=war repository_url=http://54.153.77.32:8080/nexus/content/repositories/snapshots/bharath/org/application/1.0-SNAPSHOT/application-1.0-20180426.203750-1.war username=admin password=admin123  dest=~/usr/hold/
