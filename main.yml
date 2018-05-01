@@ -1,6 +1,6 @@
 --- 
- - hosts: 52.53.243.43
-  # connection: local
+ - hosts: tom
+   connection: local
    gather_facts: False
    become: true
    tasks:
