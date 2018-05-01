@@ -1,7 +1,7 @@
 --- 
  - hosts: tom
    gather_facts: False
-   user: centos
+   user: ec2-user
    become: true
    tasks:
  
